@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ประวัติโรงพยาบาล | โรงพยาบาลพระปิยมหาราช</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --topbar-bg: #F8F9FA;
+            --header-bg: #FFFFFF;
+            --primary: #B71C1C;
+            --secondary: #FBC02D;
+            --text-dark: #333333;
+            --text-muted: #6C757D;
+            --border-light: #E9ECEF;
+            --hover-bg: #FFF3CD;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Sarabun', sans-serif;
+            line-height: 1.8;
+            color: var(--text-dark);
+            background-color: #FFFFFF;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* ===== แถบข้อมูลด้านบน ===== */
+        .top-bar {
+            background-color: var(--topbar-bg);
+            border-bottom: 1px solid var(--border-light);
+            padding: 0.6rem 0;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+        
+        .top-bar-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+        
+        .top-left span {
+            margin-right: 1.5rem;
+        }
+        
+        .top-right {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .lang-link {
+            color: var(--text-muted);
+            text-decoration: none;
+        }
+        
+        .lang-link:hover {
+            color: var(--primary);
+        }
+        
+        .btn-login {
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            padding: 0.5rem 1.2rem;
+            border-radius: 4px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: opacity 0.2s;
+        }
+        
+        .btn-login:hover {
+            opacity: 0.9;
+        }
+        
+        /* ===== HEADER หลัก ===== */
+        header {
+            background-color: var(--header-bg);
+            border-bottom: 2px solid var(--secondary);
+            padding: 1rem 0;
+        }
+        
+        .header-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+        }
+        
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            color: var(--primary);
+        }
+        
+        .logo-img {
+            height: 55px;
+            width: auto;
+            object-fit: contain;
+        }
+        
+        .logo-text h1 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+        
+        .logo-text p {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+        
+        /* ===== เมนูนำทาง — ตรงกับ Index ทุกประการ ===== */
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 0.3rem;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+        
+        nav a,
+        nav span.dropdown-toggle {
+            display: block;
+            padding: 0.7rem 1.2rem;
+            color: var(--text-dark);
+            text-decoration: none;
+            font-weight: 500;
+            border-radius: 4px;
+            transition: all 0.2s ease;
+            cursor: pointer;
+        }
+        
+        nav a:hover,
+        nav span.dropdown-toggle:hover {
+            background-color: var(--hover-bg);
+            color: var(--primary);
+        }
+        
+        nav a.active {
+            background-color: var(--primary);
+            color: white;
+        }
+        
+        .dropdown {
+            position: relative;
+        }
+        
+        .dropdown-toggle::after {
+            content: " ▾";
+            font-size: 0.8rem;
+            opacity: 0.7;
+        }
+        
+        .dropdown-menu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: white;
+            min-width: 220px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            border-radius: 4px;
+            border: 1px solid var(--border-light);
+            display: none;
+            z-index: 1000;
+        }
+        
+        .dropdown:hover .dropdown-menu {
+            display: block;
+        }
+        
+        .dropdown-menu a {
+            padding: 0.6rem 1.2rem;
+            border-radius: 0;
+            white-space: nowrap;
+        }
+        
+        .dropdown-menu a:hover {
+            background-color: var(--hover-bg);
+        }
+        
+        /* ===== MAIN CONTENT ===== */
+        main {
+            padding: 3rem 0 5rem;
+            background-color: #FFFFFF;
+        }
+        
+        .page-header {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 2px solid var(--secondary);
+        }
+        
+        .page-header h2 {
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+        
+        .page-header p {
+            color: var(--text-muted);
+            font-size: 1rem;
+        }
+        
+        .section-title {
+            font-size: 1.35rem;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--secondary);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        /* ===== ไทม์ไลน์ ===== */
+        .timeline {
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+            margin-bottom: 3rem;
+        }
+        
+        .timeline-card {
+            display: flex;
+            background: #FFFFFF;
+            border: 1px solid var(--border-light);
+            border-left: 4px solid var(--primary);
+            border-radius: 0 8px 8px 0;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+            overflow: hidden;
+            transition: box-shadow 0.2s ease;
+        }
+        
+        .timeline-card:hover {
+            box-shadow: 0 4px 12px rgba(183, 28, 28, 0.08);
+        }
+        
+        .timeline-year {
+            background-color: var(--primary);
+            color: white;
+            padding: 1rem 1rem;
+            font-weight: 700;
+            font-size: 1rem;
+            min-width: 110px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+        
+        .timeline-content {
+            padding: 1rem 1.5rem;
+            flex: 1;
+        }
+        
+        .timeline-content strong {
+            display: block;
+            color: var(--primary);
+            margin-bottom: 0.3rem;
+        }
+        
+        .timeline-content span.badge {
+            display: inline-block;
+            background: var(--secondary);
+            color: #5D4037;
+            padding: 0.15rem 0.6rem;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-left: 0.5rem;
+        }
+        
+        /* ===== เนื้อหา ===== */
+        .history-section {
+            margin-bottom: 2.5rem;
+        }
+        
+        .history-section p {
+            margin-bottom: 1rem;
+            text-align: justify;
+            text-indent: 2em;
+        }
+        
+        .info-box {
+            background-color: var(--topbar-bg);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-top: 1rem;
+            border-left: 4px solid var(--secondary);
+        }
+        
+        .info-box p {
+            text-indent: 0;
+            margin-bottom: 0.5rem;
+        }
+        
+        .map-border {
+            margin-top: 1rem;
+            padding-left: 1.5rem;
+        }
+        
+        .closing-text {
+            margin-top: 1.5rem;
+            text-indent: 0;
+            font-weight: 500;
+            text-align: center;
+            padding: 1.2rem;
+            background-color: var(--hover-bg);
+            border-radius: 8px;
+            border-left: 4px solid var(--primary);
+        }
+        
+        /* ===== FOOTER ===== */
+        footer {
+            background-color: var(--primary);
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            border-top: 3px solid var(--secondary);
+            font-size: 0.9rem;
+        }
+        
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 768px) {
+            .top-bar-inner,
+            .header-inner {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            nav ul {
+                justify-content: center;
+            }
+            
+            .page-header h2 {
+                font-size: 1.5rem;
+            }
+            
+            .timeline-card {
+                flex-direction: column;
+            }
+            
+            .timeline-year {
+                justify-content: flex-start;
+                padding: 0.6rem 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- แถบข้อมูลด้านบน -->
+    <div class="top-bar">
+        <div class="container top-bar-inner">
+            <div class="top-left">
+                <span>📞 039-513555</span>
+                <span>✉️ saraban.trth@gmail.com</span>
+            </div>
+            <div class="top-right">
+                <a href="#" class="lang-link">ไทย</a>
+                <a href="#" class="lang-link">English</a>
+                <span>🌙</span>
+                <button class="btn-login">เข้าสู่ระบบ</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ส่วนหัวหลัก + เมนูตรงกับ Index ทุกประการ -->
+    <header>
+        <div class="container header-inner">
+            <a href="index.html" class="logo-area">
+                <img src="logo" alt="" class="logo-img">
+                <div class="logo-text">
+                    <h1>กลุ่มงานบริหารทั่วไป</h1>
+                    <p>โรงพยาบาลพระปิยมหาราช</p>
+                </div>
+            </a>
+            
+            <nav>
+                <ul>
+                    <li><a href="index.html">หน้าแรก</a></li>
+                    
+                    <li class="dropdown">
+                        <span class="dropdown-toggle">เกี่ยวกับเรา</span>
+                        <div class="dropdown-menu">
+                            <a href="history.html" class="active">ประวัติโรงพยาบาล</a>
+                            <a href="organization".html">โครงสร้างองค์กร/โครงสร้างหน่วยงาน</a>
+                            <a href="person.html">บุคลากร</a>
+                        </div>
+                    </li>
+                    
+                    <li class="dropdown">
+                        <span class="dropdown-toggle">ระบบ/โปรแกรม</span>
+                        <div class="dropdown-menu">
+                    <a href="https://ppm.moph.go.th/tel-directory/" target="_blank">ค้นหาเบอร์โทรศัพท์</a>
+                    <a href="http://203.157.134.70/archives/login.php" target="_blank">สารบรรณอิเล็กทรอนิกส์</a>
+                    <a href="http://203.157.134.70/calendarix_car/calendar.php" target="_blank">จองรถยนต์</a>
+                    <a href="http://203.157.134.70/calendarix/calendar.php" target="_blank">จองห้องประชุม</a>
+                    <a href="http://203.157.134.70/finance/index_dtam.php" target="_blank">โปรแกรมเงินเดือน</a>
+                    <a href="http://164.115.43.49:81/p4p/" target="_blank">โปรแกรม P4P</a>
+                    <a href="http://203.157.134.70/holiday/" target="_blank">โปรแกรมวันลา</a>
+                    <a href="http://203.157.134.70/sewage/" target="_blank">ระบบบำบัดน้ำเสีย-ขยะติดเชื้อ</a>
+                    <a href="http://203.157.134.70/car_trat/" target="_blank">โปรแกรมตรวจสอบรถยนต์</a>
+                    <a href="http://203.157.134.70/security/" target="_blank">ระบบรักษาความปลอดภัย</a>
+                    <a href="http://203.157.138.83/fire/" target="_blank">ระบบตรวจสอบถังดับเพลิง</a>
+                    <a href="http://203.157.134.70/security/line/line_report_security3.php" target="_blank">รายงานตู้แดงออนไลน์</a>
+                    <a href="http://203.157.134.70/security/line/line_report_park.php" target="_blank">รายงานอาคารจอดรถ</a>
+                        </div>
+                    </li>
+                    
+                    <li class="dropdown">
+                        <span class="dropdown-toggle">แบบฟอร์มเอกสาร</span>
+                        <div class="dropdown-menu">
+                            <a href="#forms-vehicle">🚗 แบบฟอร์มงานยานพาหนะ</a>
+                            <a href="#forms-general">📋 แบบฟอร์มงานทั่วไป</a>
+                            <a href="#forms-pr">📢 แบบฟอร์มงานประชาสัมพันธ์</a>
+                        </div>
+                    </li>
+                    
+                    <li><a href="news.html">ข่าวประชาสัมพันธ์</a></li>
+                    <li><a href="contact.html">ติดต่อเรา</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <div class="page-header">
+                <h2>ประวัติโรงพยาบาลพระปิยมหาราช</h2>
+                <p>PHRA PIYAMAHARAJ HOSPITAL</p>
+            </div>
+
+            <h3 class="section-title">📋 ลำดับเหตุการณ์สำคัญ</h3>
+            <div class="timeline">
+                <div class="timeline-card">
+                    <div class="timeline-year">พ.ศ. 2494</div>
+                    <div class="timeline-content">
+                        <strong>เริ่มจัดหาสถานที่ก่อสร้าง</strong>
+                        กระทรวงสาธารณสุขเริ่มดำเนินการจัดหาสถานที่ก่อสร้างโรงพยาบาลประจำจังหวัดตราด ที่บริเวณเนินไข่เต่า หรือ "ดอนไข่เต่า"
+                    </div>
+                </div>
+                
+                <div class="timeline-card">
+                    <div class="timeline-year">พ.ศ. 2496</div>
+                    <div class="timeline-content">
+                        <strong>เปิดให้บริการอย่างเป็นทางการ</strong>
+                        24 มิถุนายน พ.ศ. 2496 เปิดดำเนินการอย่างเป็นทางการ นายแพทย์พิสุทธิ์ อุตตะโมท เป็นผู้อำนวยการคนแรก
+                    </div>
+                </div>
+                
+                <div class="timeline-card">
+                    <div class="timeline-year">ก.พ. 2569</div>
+                    <div class="timeline-content">
+                        <strong>แถลงข่าวการเปลี่ยนชื่อ</strong>
+                        24 กุมภาพันธ์ พ.ศ. 2569 แถลงข่าวเกี่ยวกับการเปลี่ยนชื่อและกิจกรรมของโรงพยาบาล
+                    </div>
+                </div>
+                
+                <div class="timeline-card">
+                    <div class="timeline-year">13 มี.ค. 69</div>
+                    <div class="timeline-content">
+                        <strong>แจ้งหน่วยรับการเปลี่ยนชื่อ</strong>
+                        แจ้งหน่วยงานบริการสุขภาพเมื่อวันที่ 19 มีนาคม 2569
+                    </div>
+                </div>
+                
+                <div class="timeline-card">
+                    <div class="timeline-year">23 มี.ค. 69</div>
+                    <div class="timeline-content">
+                        <strong>ใช้ชื่อใหม่<span class="badge">เริ่มใช้ชื่อใหม่</span></strong>
+                        เปลี่ยนเป็น "โรงพยาบาลพระปิยมหาราช" เริ่มใช้อย่างเป็นทางการและประกอบพิธีเปิดป้ายชื่อ
+                    </div>
+                </div>
+            </div>
+
+            <div class="history-section">
+                <h3 class="section-title">📖 ความเป็นมาและการก่อตั้ง</h3>
+                <p>กระทรวงสาธารณสุขเริ่มดำเนินการจัดหาสถานที่ก่อสร้างโรงพยาบาลประจำจังหวัดตราด เมื่อปี พ.ศ. 2494 โดยเลือกบริเวณเนินไข่เต่า หรือที่เรียกกันว่า “ดอนไข่เต่า” ซึ่งเดิมเป็นสุสานที่ใช้ฝังศพและประกอบพิธีฌาปนกิจ เป็นสถานที่ก่อสร้างโรงพยาบาล ทั้งนี้ ได้ดำเนินการจัดการพื้นที่และนำศพจากหลุมฝังศพเดิมไปประกอบพิธีบำเพ็ญกุศลตามประเพณี</p>
+                <p>ในช่วงเวลาดังกล่าว การคมนาคมติดต่อกับจังหวัดอื่นสามารถเดินทางได้ทางทะเลเป็นหลัก โดยมีเรือโดยสารระหว่างจังหวัดตราดกับกรุงเทพมหานครสัปดาห์ละหนึ่งครั้ง ใช้เวลาเดินทางประมาณ 3 วัน 3 คืน ส่วนการคมนาคมภายในจังหวัดมีถนนสายหลักเพียง 2 สาย ได้แก่ เส้นทางจากบ้านท่าเรือจ้างเข้าสู่ตัวเมือง ระยะทางประมาณ 2 กิโลเมตร และเส้นทางจากตัวเมืองตราดไปยังอำเภอแหลมงอบ ระยะทางประมาณ 17 กิโลเมตร</p>
+            </div>
+
+            <div class="history-section">
+                <h3 class="section-title">🏥 การเปิดให้บริการและพัฒนาการ</h3>
+                <p>โรงพยาบาลตราดเปิดดำเนินการอย่างเป็นทางการเมื่อวันที่ 24 มิถุนายน พ.ศ. 2496 โดยมีนายแพทย์พิสุทธิ์ อุตตะโมท เป็นผู้อำนวยการคนแรก ในระยะแรกมีอาคารและสิ่งปลูกสร้างประกอบด้วย เรือนคนไข้ในขนาด 25 เตียง 1 หลัง ตึกอำนวยการ 1 หลัง โรงซักฟอก 1 หลัง เรือนพักพยาบาล 1 หลัง บ้านพักแพทย์ 2 หลัง และโรงครัว 1 หลัง มีเจ้าหน้าที่ปฏิบัติงานประมาณ 20–25 คน</p>
+                <p>ต่อมาในปี พ.ศ. 2503 กลุ่มเจ้าของโรงเลื่อยจักรในจังหวัดตราดได้ร่วมกันสร้างเรือนผู้ป่วยขนาด 25 เตียง มอบให้แก่โรงพยาบาล เพื่อรองรับจำนวนผู้ป่วยที่เพิ่มขึ้นและจัดแยกผู้ป่วยชายและหญิงให้เป็นสัดส่วนมากยิ่งขึ้น</p>
+                <p>ในเวลาต่อมา พลโทอัมพร จินตกานนท์ ได้สร้างอาคารพิเศษเดี่ยวจำนวน 7 ห้อง และตระกูลจินตกานนท์ได้บริจาควัสดุอุปกรณ์สำหรับประจำห้องพัก โดยตั้งชื่ออาคารว่า “พระยาอรรถวิรัชวาทะเศรณี” อาคารดังกล่าวได้รับการเปิดอย่างเป็นทางการโดยสมเด็จพระศรีนครินทราบรมราชชนนี เมื่อวันที่ 25 ตุลาคม พ.ศ. 2512 และต่อมาได้ขยายเป็นอาคารพิเศษเดี่ยวจำนวน 19 ห้อง ในปี พ.ศ. 2521</p>
+                <p>ภายหลัง เรือนผู้ป่วยขนาด 25 เตียงหลังแรกได้ถูกรื้อถอนเพื่อใช้พื้นที่ก่อสร้างอาคารอุบัติเหตุ อาคารเอกซเรย์ และอาคารผ่าตัด พร้อมทั้งได้รับการสนับสนุนงบประมาณสำหรับก่อสร้างอาคารผู้ป่วย บ้านพัก และสิ่งปลูกสร้างอื่น ๆ เพิ่มเติมอย่างต่อเนื่อง เพื่อพัฒนาศักยภาพการให้บริการแก่ประชาชน</p>
+            </div>
+
+            <div class="history-section">
+                <h3 class="section-title">👑 การได้รับพระราชทานนามใหม่</h3>
+                <p>ตลอดระยะเวลาการดำเนินงาน โรงพยาบาลตราดมีความผูกพันกับประวัติศาสตร์ของจังหวัดตราด โดยเฉพาะพระราชกรณียกิจของพระบาทสมเด็จพระจุลจอมเกล้าเจ้าอยู่หัว พระปิยมหาราช ผู้ทรงมีพระมหากรุณาธิคุณต่อประเทศชาติและจังหวัดตราดอย่างยิ่ง</p>
+                <p>จังหวัดตราดมีความสำคัญทางประวัติศาสตร์จากพระราชกรณียกิจด้านการต่างประเทศของพระองค์ โดยเฉพาะเหตุการณ์ที่เกี่ยวข้องกับการรักษาแผ่นดินตราดไว้เป็นส่วนหนึ่งของประเทศไทย อีกทั้งพระองค์ยังเสด็จประพาสเมืองตราดหลายครั้ง สร้างความผูกพันและความสำนึกในพระมหากรุณาธิคุณแก่ประชาชนชาวตราดสืบมา</p>
+                <p>ด้วยความสำคัญทางประวัติศาสตร์ดังกล่าว โรงพยาบาลตราดจึงได้ดำเนินการขอพระราชทานนามใหม่ และพระบาทสมเด็จพระวชิรเกล้าเจ้าอยู่หัวทรงพระกรุณาโปรดเกล้าโปรดกระหม่อมพระราชทานนามใหม่แก่โรงพยาบาลตราดว่า <strong>“โรงพยาบาลพระปิยมหาราช”</strong> อันเป็นเกียรติประวัติและสิริมงคลแก่โรงพยาบาล บุคลากร และประชาชนชาวจังหวัดตราด</p>
+                <p>โรงพยาบาลพระปิยมหาราชมีผลใช้ชื่อใหม่ตั้งแต่วันที่ 23 มีนาคม พ.ศ. 2569 เป็นต้นไป โดยในวันดังกล่าวได้จัดพิธีเปิดป้ายชื่อ “โรงพยาบาลพระปิยมหาราช” อย่างเป็นทางการ ณ บริเวณด้านหน้าโรงพยาบาล มีนายพิริยะ ฉันทดิลก ผู้ว่าราชการจังหวัดตราด เป็นประธานในพิธี และมีผู้แทนกระทรวงสาธารณสุข หัวหน้าส่วนราชการ คณะผู้บริหาร บุคลากร และผู้เกี่ยวข้องเข้าร่วมพิธี</p>
+                <p>การเปลี่ยนชื่อในครั้งนี้นับเป็นอีกหนึ่งหน้าสำคัญในประวัติศาสตร์ของโรงพยาบาล สะท้อนถึงความภาคภูมิใจในประวัติศาสตร์ของจังหวัดตราด และเป็นแรงบันดาลใจให้บุคลากรทุกภาคส่วนร่วมกันพัฒนาคุณภาพบริการทางการแพทย์และสาธารณสุข เพื่อดูแลสุขภาพของประชาชนอย่างมีคุณภาพและต่อเนื่องสืบไป</p>
+            </div>
+
+            <div class="history-section">
+                <h3 class="section-title">📍 ที่ตั้งและข้อมูลทั่วไป</h3>
+                <div class="info-box">
+                    <p><strong>ชื่อหน่วยงาน:</strong> โรงพยาบาลพระปิยมหาราช</p>
+                    <p><strong>ชื่อภาษาอังกฤษ:</strong> PHRA PIYAMAHARAJ HOSPITAL</p>
+                    <p><strong>สังกัด:</strong> กระทรวงสาธารณสุข สำนักงานปลัดกระทรวงสาธารณสุข</p>
+                    <p><strong>ที่อยู่:</strong> เลขที่ 108 ถนนสุขุมวิท ตำบลวังกระแจะ อำเภอเมืองตราด จังหวัดตราด 23000</p>
+                    <p><strong>พื้นที่:</strong> 33 ไร่ 37 ตารางวา</p>
+                    
+                    <p style="margin-top: 1rem;"><strong>อาณาเขต:</strong></p>
+                    <div class="map-border">
+                        <p>• <strong>ทิศเหนือ:</strong> ติดต่อกับที่ดินส่วนบุคคล</p>
+                        <p>• <strong>ทิศใต้:</strong> ติดต่อกับถนนวิวัฒนะ</p>
+                        <p>• <strong>ทิศตะวันออก:</strong> ติดต่อกับที่ดินส่วนบุคคล</p>
+                        <p>• <strong>ทิศตะวันตก:</strong> ติดต่อกับถนนสุขุมวิท</p>
+                    </div>
+                </div>
+                <p class="closing-text">
+                    โรงพยาบาลพระปิยมหาราชมุ่งมั่นพัฒนาระบบบริการทางการแพทย์และสาธารณสุขอย่างต่อเนื่อง เพื่อให้ประชาชนได้รับบริการที่มีคุณภาพ ปลอดภัย และได้มาตรฐาน ภายใต้ความมุ่งมั่นในการพัฒนาคุณภาพบริการเพื่อสุขภาพที่ดีของประชาชน
+                </p>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>กลุ่มงานบริหารทั่วไป | โรงพยาบาลพระปิยมหาราช</p>
+        <p>ที่อยู่: เลขที่ 108 ถนนสุขุมวิท ตำบลวังกระแจะ อำเภอเมืองตราด จังหวัดตราด 23000</p>
+    </footer>
+</body>
+</html>

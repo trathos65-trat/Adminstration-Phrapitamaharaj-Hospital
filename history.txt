@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ประวัติโรงพยาบาล | โรงพยาบาลพระปิยมหาราช</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary: #B71C1C;
+            --secondary: #FBC02D;
+            --accent: #FF6F00;
+            --light: #F5F5F5;
+            --dark: #212121;
+            --gray: #757575;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Sarabun', -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+            line-height: 1.8;
+            color: var(--dark);
+            background-color: #fefefe;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header */
+        header {
+            background: linear-gradient(135deg, var(--primary) 0%, #d32f2f 100%);
+            color: white;
+            padding: 1rem 0;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .header-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            color: white;
+        }
+        
+        .logo-img {
+            height: 56px;
+            width: auto;
+            object-fit: contain;
+        }
+        
+        .logo-text h1 {
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+        
+        .logo-text p {
+            font-size: 0.8rem;
+            opacity: 0.9;
+        }
+        
+        /* Navigation */
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+        
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 0.5rem 0;
+            border-bottom: 2px solid transparent;
+            transition: all 0.3s ease;
+        }
+        
+        nav a:hover,
+        nav a.active {
+            border-bottom-color: var(--secondary);
+            color: var(--secondary);
+        }
+        
+        /* Main Content */
+        main {
+            padding: 3rem 0 5rem;
+        }
+        
+        .page-header {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 3px solid var(--secondary);
+        }
+        
+        .page-header h2 {
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+        
+        .history-section {
+            margin-bottom: 3rem;
+        }
+        
+        .history-section h3 {
+            font-size: 1.4rem;
+            color: var(--primary);
+            margin-bottom: 1.2rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #eee;
+        }
+        
+        .history-section p {
+            margin-bottom: 1rem;
+            text-align: justify;
+            text-indent: 2em;
+        }
+        
+        /* Timeline from your reference */
+        .timeline {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+        
+        .timeline-card {
+            display: flex;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+            overflow: hidden;
+            border-left: 4px solid var(--primary);
+        }
+        
+        .timeline-year {
+            background: linear-gradient(135deg, var(--primary) 0%, #d32f2f 100%);
+            color: white;
+            padding: 1rem 1.2rem;
+            font-weight: 700;
+            font-size: 1.2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 90px;
+        }
+        
+        .timeline-content {
+            padding: 1rem 1.5rem;
+            flex: 1;
+        }
+        
+        .timeline-content strong {
+            display: block;
+            color: var(--primary);
+            margin-bottom: 0.3rem;
+            font-size: 1rem;
+        }
+        
+        .timeline-content span.note {
+            display: inline-block;
+            background: #e8f5e9;
+            color: #2e7d32;
+            padding: 0.15rem 0.6rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            margin-left: 0.5rem;
+        }
+        
+        .info-box {
+            background: #f9f9f9;
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin-top: 1rem;
+        }
+        
+        .info-box p {
+            text-indent: 0;
+            margin-bottom: 0.5rem;
+        }
+        
+        .map-border {
+            margin-top: 1rem;
+            padding-left: 1.5rem;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            font-size: 0.9rem;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-inner {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            nav ul {
+                justify-content: center;
+                gap: 0.8rem;
+            }
+            
+            .page-header h2 {
+                font-size: 1.5rem;
+            }
+            
+            .timeline-card {
+                flex-direction: column;
+            }
+            
+            .timeline-year {
+                justify-content: flex-start;
+                padding: 0.5rem 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container header-inner">
+            <a href="index.html" class="logo-area">
+                <img src="logo" alt="โลโก้โรงพยาบาลพระปิยมหาราช" class="logo-img">
+                <div class="logo-text">
+                    <h1>กลุ่มงานบริหารทั่วไป</h1>
+                    <p>โรงพยาบาลพระปิยมหาราช</p>
+                </div>
+            </a>
+            
+            <nav>
+                <ul>
+                    <li><a href="index.html">หน้าแรก</a></li>
+                    <li><a href="history.html" class="active">ประวัติโรงพยาบาล</a></li>
+                    <li><a href="#">โครงสร้างองค์กร</a></li>
+                    <li><a href="#">ระบบและโปรแกรม</a></li>
+                    <li><a href="#">แบบฟอร์มเอกสาร</a></li>
+                    <li><a href="#">ติดต่อเรา</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <div class="page-header">
+                <h2>ประวัติโรงพยาบาลพระปิยมหาราช</h2>
+                <p>PHRA PIYAMAHARAJ HOSPITAL</p>
+            </div>
+
+            <!-- Timeline Summary -->
+            <div class="history-section">
+                <h3>📋 ลำดับเหตุการณ์สำคัญ</h3>
+                <div class="timeline">
+                    <div class="timeline-card">
+                        <div class="timeline-year">พ.ศ. 2494</div>
+                        <div class="timeline-content">
+                            <strong>เริ่มจัดหาสถานที่ก่อสร้าง</strong>
+                            กระทรวงสาธารณสุขเริ่มดำเนินการจัดหาสถานที่ก่อสร้างโรงพยาบาลประจำจังหวัดตราด ที่บริเวณเนินไข่เต่า หรือ "ดอนไข่เต่า"
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-card">
+                        <div class="timeline-year">พ.ศ. 2496</div>
+                        <div class="timeline-content">
+                            <strong>เปิดให้บริการอย่างเป็นทางการ</strong>
+                            24 มิถุนายน พ.ศ. 2496 เปิดดำเนินการอย่างเป็นทางการ นายแพทย์พิสุทธิ์ อุตตะโมท เป็นผู้อำนวยการคนแรก
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-card">
+                        <div class="timeline-year">ก.พ. 2569</div>
+                        <div class="timeline-content">
+                            <strong>แถลงข่าวการเปลี่ยนชื่อ</strong>
+                            24 กุมภาพันธ์ พ.ศ. 2569 แถลงข่าวเกี่ยวกับการเปลี่ยนชื่อและกิจกรรมของโรงพยาบาล
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-card">
+                        <div class="timeline-year">13 มี.ค. 69</div>
+                        <div class="timeline-content">
+                            <strong>แจ้งหน่วยรับการเปลี่ยนชื่อ</strong>
+                            แจ้งหน่วยงานบริการสุขภาพเมื่อวันที่ 19 มีนาคม 2569
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-card">
+                        <div class="timeline-year">23 มี.ค. 69</div>
+                        <div class="timeline-content">
+                            <strong>ใช้ชื่อใหม่<span class="note">เริ่มใช้ชื่อใหม่</span></strong>
+                            เปลี่ยนเป็น "โรงพยาบาลพระปิยมหาราช" เริ่มใช้อย่างเป็นทางการและประกอบพิธีเปิดป้ายชื่อ
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Full History -->
+            <div class="history-section">
+                <h3>📖 ความเป็นมาและการก่อตั้ง</h3>
+                <p>กระทรวงสาธารณสุขเริ่มดำเนินการจัดหาสถานที่ก่อสร้างโรงพยาบาลประจำจังหวัดตราด เมื่อปี พ.ศ. 2494 โดยเลือกบริเวณเนินไข่เต่า หรือที่เรียกกันว่า “ดอนไข่เต่า” ซึ่งเดิมเป็นสุสานที่ใช้ฝังศพและประกอบพิธีฌาปนกิจ เป็นสถานที่ก่อสร้างโรงพยาบาล ทั้งนี้ ได้ดำเนินการจัดการพื้นที่และนำศพจากหลุมฝังศพเดิมไปประกอบพิธีบำเพ็ญกุศลตามประเพณี</p>
+                <p>ในช่วงเวลาดังกล่าว การคมนาคมติดต่อกับจังหวัดอื่นสามารถเดินทางได้ทางทะเลเป็นหลัก โดยมีเรือโดยสารระหว่างจังหวัดตราดกับกรุงเทพมหานครสัปดาห์ละหนึ่งครั้ง ใช้เวลาเดินทางประมาณ 3 วัน 3 คืน ส่วนการคมนาคมภายในจังหวัดมีถนนสายหลักเพียง 2 สาย ได้แก่ เส้นทางจากบ้านท่าเรือจ้างเข้าสู่ตัวเมือง ระยะทางประมาณ 2 กิโลเมตร และเส้นทางจากตัวเมืองตราดไปยังอำเภอแหลมงอบ ระยะทางประมาณ 17 กิโลเมตร</p>
+            </div>
+
+            <div class="history-section">
+                <h3>🏥 การเปิดให้บริการและพัฒนาการ</h3>
+                <p>โรงพยาบาลตราดเปิดดำเนินการอย่างเป็นทางการเมื่อวันที่ 24 มิถุนายน พ.ศ. 2496 โดยมีนายแพทย์พิสุทธิ์ อุตตะโมท เป็นผู้อำนวยการคนแรก ในระยะแรกมีอาคารและสิ่งปลูกสร้างประกอบด้วย เรือนคนไข้ในขนาด 25 เตียง 1 หลัง ตึกอำนวยการ 1 หลัง โรงซักฟอก 1 หลัง เรือนพักพยาบาล 1 หลัง บ้านพักแพทย์ 2 หลัง และโรงครัว 1 หลัง มีเจ้าหน้าที่ปฏิบัติงานประมาณ 20–25 คน</p>
+                <p>ต่อมาในปี พ.ศ. 2503 กลุ่มเจ้าของโรงเลื่อยจักรในจังหวัดตราดได้ร่วมกันสร้างเรือนผู้ป่วยขนาด 25 เตียง มอบให้แก่โรงพยาบาล เพื่อรองรับจำนวนผู้ป่วยที่เพิ่มขึ้นและจัดแยกผู้ป่วยชายและหญิงให้เป็นสัดส่วนมากยิ่งขึ้น</p>
+                <p>ในเวลาต่อมา พลโทอัมพร จินตกานนท์ ได้สร้างอาคารพิเศษเดี่ยวจำนวน 7 ห้อง และตระกูลจินตกานนท์ได้บริจาควัสดุอุปกรณ์สำหรับประจำห้องพัก โดยตั้งชื่ออาคารว่า “พระยาอรรถวิรัชวาทะเศรณี” อาคารดังกล่าวได้รับการเปิดอย่างเป็นทางการโดยสมเด็จพระศรีนครินทราบรมราชชนนี เมื่อวันที่ 25 ตุลาคม พ.ศ. 2512 และต่อมาได้ขยายเป็นอาคารพิเศษเดี่ยวจำนวน 19 ห้อง ในปี พ.ศ. 2521</p>
+                <p>ภายหลัง เรือนผู้ป่วยขนาด 25 เตียงหลังแรกได้ถูกรื้อถอนเพื่อใช้พื้นที่ก่อสร้างอาคารอุบัติเหตุ อาคารเอกซเรย์ และอาคารผ่าตัด พร้อมทั้งได้รับการสนับสนุนงบประมาณสำหรับก่อสร้างอาคารผู้ป่วย บ้านพัก และสิ่งปลูกสร้างอื่น ๆ เพิ่มเติมอย่างต่อเนื่อง เพื่อพัฒนาศักยภาพการให้บริการแก่ประชาชน</p>
+            </div>
+
+            <div class="history-section">
+                <h3>👑 การได้รับพระราชทานนามใหม่</h3>
+                <p>ตลอดระยะเวลาการดำเนินงาน โรงพยาบาลตราดมีความผูกพันกับประวัติศาสตร์ของจังหวัดตราด โดยเฉพาะพระราชกรณียกิจของพระบาทสมเด็จพระจุลจอมเกล้าเจ้าอยู่หัว พระปิยมหาราช ผู้ทรงมีพระมหากรุณาธิคุณต่อประเทศชาติและจังหวัดตราดอย่างยิ่ง</p>
+                <p>จังหวัดตราดมีความสำคัญทางประวัติศาสตร์จากพระราชกรณียกิจด้านการต่างประเทศของพระองค์ โดยเฉพาะเหตุการณ์ที่เกี่ยวข้องกับการรักษาแผ่นดินตราดไว้เป็นส่วนหนึ่งของประเทศไทย อีกทั้งพระองค์ยังเสด็จประพาสเมืองตราดหลายครั้ง สร้างความผูกพันและความสำนึกในพระมหากรุณาธิคุณแก่ประชาชนชาวตราดสืบมา</p>
+                <p>ด้วยความสำคัญทางประวัติศาสตร์ดังกล่าว โรงพยาบาลตราดจึงได้ดำเนินการขอพระราชทานนามใหม่ และพระบาทสมเด็จพระวชิรเกล้าเจ้าอยู่หัวทรงพระกรุณาโปรดเกล้าโปรดกระหม่อมพระราชทานนามใหม่แก่โรงพยาบาลตราดว่า <strong>“โรงพยาบาลพระปิยมหาราช”</strong> อันเป็นเกียรติประวัติและสิริมงคลแก่โรงพยาบาล บุคลากร และประชาชนชาวจังหวัดตราด</p>
+                <p>โรงพยาบาลพระปิยมหาราชมีผลใช้ชื่อใหม่ตั้งแต่วันที่ 23 มีนาคม พ.ศ. 2569 เป็นต้นไป โดยในวันดังกล่าวได้จัดพิธีเปิดป้ายชื่อ “โรงพยาบาลพระปิยมหาราช” อย่างเป็นทางการ ณ บริเวณด้านหน้าโรงพยาบาล มีนายพิริยะ ฉันทดิลก ผู้ว่าราชการจังหวัดตราด เป็นประธานในพิธี และมีผู้แทนกระทรวงสาธารณสุข หัวหน้าส่วนราชการ คณะผู้บริหาร บุคลากร และผู้เกี่ยวข้องเข้าร่วมพิธี</p>
+                <p>การเปลี่ยนชื่อในครั้งนี้นับเป็นอีกหนึ่งหน้าสำคัญในประวัติศาสตร์ของโรงพยาบาล สะท้อนถึงความภาคภูมิใจในประวัติศาสตร์ของจังหวัดตราด และเป็นแรงบันดาลใจให้บุคลากรทุกภาคส่วนร่วมกันพัฒนาคุณภาพบริการทางการแพทย์และสาธารณสุข เพื่อดูแลสุขภาพของประชาชนอย่างมีคุณภาพและต่อเนื่องสืบไป</p>
+            </div>
+
+            <div class="history-section">
+                <h3>📍 ที่ตั้งและข้อมูลทั่วไป</h3>
+                <div class="info-box">
+                    <p><strong>ชื่อหน่วยงาน:</strong> โรงพยาบาลพระปิยมหาราช</p>
+                    <p><strong>ชื่อภาษาอังกฤษ:</strong> PHRA PIYAMAHARAJ HOSPITAL</p>
+                    <p><strong>สังกัด:</strong> กระทรวงสาธารณสุข สำนักงานปลัดกระทรวงสาธารณสุข</p>
+                    <p><strong>ที่อยู่:</strong> เลขที่ 108 ถนนสุขุมวิท ตำบลวังกระแจะ อำเภอเมืองตราด จังหวัดตราด 23000</p>
+                    <p><strong>พื้นที่:</strong> 33 ไร่ 37 ตารางวา</p>
+                    
+                    <p style="margin-top: 1rem;"><strong>อาณาเขต:</strong></p>
+                    <div class="map-border">
+                        <p>• <strong>ทิศเหนือ:</strong> ติดต่อกับที่ดินส่วนบุคคล</p>
+                        <p>• <strong>ทิศใต้:</strong> ติดต่อกับถนนวิวัฒนะ</p>
+                        <p>• <strong>ทิศตะวันออก:</strong> ติดต่อกับที่ดินส่วนบุคคล</p>
+                        <p>• <strong>ทิศตะวันตก:</strong> ติดต่อกับถนนสุขุมวิท</p>
+                    </div>
+                </div>
+                <p style="margin-top: 1.5rem; text-indent: 0; font-weight: 500; text-align: center;">
+                    โรงพยาบาลพระปิยมหาราชมุ่งมั่นพัฒนาระบบบริการทางการแพทย์และสาธารณสุขอย่างต่อเนื่อง เพื่อให้ประชาชนได้รับบริการที่มีคุณภาพ ปลอดภัย และได้มาตรฐาน ภายใต้ความมุ่งมั่นในการพัฒนาคุณภาพบริการเพื่อสุขภาพที่ดีของประชาชน
+                </p>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>กลุ่มงานบริหารทั่วไป | โรงพยาบาลพระปิยมหาราช</p>
+        <p>ที่อยู่: เลขที่ 108 ถนนสุขุมวิท ตำบลวังกระแจะ อำเภอเมืองตราด จังหวัดตราด 23000</p>
+    </footer>
+</body>
+</html>
